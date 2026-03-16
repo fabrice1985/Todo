@@ -5,8 +5,9 @@ import com.example.Todo.services.TodoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean; // on me demande d'ajouter la dependance dans maven pourtant s'est deja fait 
+//import org.springframework.boot.test.mock.mockito.MockBean; // on me demande d'ajouter la dependance dans maven pourtant s'est deja fait
 import org.springframework.http.MediaType;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
 
@@ -17,12 +18,12 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(TodoControllerTest.class)
+@WebMvcTest(TodoController.class)
 public class TodoControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean    //add maven dependency
+    @MockitoBean    //add maven dependency
     private TodoService todoService;
 
     @Autowired
