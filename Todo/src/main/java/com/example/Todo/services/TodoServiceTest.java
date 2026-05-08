@@ -24,88 +24,91 @@ public class TodoServiceTest {
     @InjectMocks
     private TodoService todoService;
 
+    private static final Long TODO_ID = 1L;
+    private static final Long ANOTHER_TODO_ID = 2L;
+    private static final Long UNKNOWN_TODO_ID = 99L;
+
+    private static final String TODO_TITLE = "task1";
+    private static final String TODO_DESCRIPTION = "Description 1";
+
+    private static final String SECOND_TODO_TITLE = "Task 2";
+    private static final String SECOND_TODO_DESCRIPTION = "Description 2";
+
+    private static final String NEW_TITLE = "New task";
+    private static final String NEW_DESCRIPTION = "New description";
+
+    private static final String OLD_TITLE = "Old title";
+    private static final String OLD_DESCRIPTION = "Old desc";
+
+    private static final String UPDATED_TITLE = "New title";
+    private static final String UPDATED_DESCRIPTION = "New desc";
+
     @Test
     void findAll_shouldReturnListOfTodos() {
-        // Arrange
-        Todo t1 = new Todo(1L, "Task 1", "Description 1");
-        Todo t2 = new Todo(2L, "Task 2", "Description 2");
+        Todo t1 = new Todo(TODO_ID, TODO_TITLE, TODO_DESCRIPTION);
+        Todo t2 = new Todo(ANOTHER_TODO_ID, SECOND_TODO_TITLE, SECOND_TODO_DESCRIPTION);
         given(todoRepository.findAll()).willReturn(List.of(t1, t2));
 
-        // Act
         List<Todo> result = todoService.findAll();
 
-        // Assert
         assertThat(result).hasSize(2);
-        assertThat(result.get(0).getTitre()).isEqualTo("Task 1");
+        assertThat(result.get(0).getTitre()).isEqualTo(TODO_TITLE);
         verify(todoRepository).findAll();
     }
 
     @Test
     void findById_whenFound_shouldReturnTodo() {
-        // Arrange
-        Todo t = new Todo(1L, "Task 1", "Description 1");
-        given(todoRepository.findById(1L)).willReturn(Optional.of(t));
+        Todo t = new Todo(TODO_ID, TODO_TITLE, TODO_DESCRIPTION);
+        given(todoRepository.findById(TODO_ID)).willReturn(Optional.of(t));
 
-        // Act
-        Todo result = todoService.findById(1L);
+        Todo result = todoService.findById(TODO_ID);
 
-        // Assert
-        assertThat(result.getId()).isEqualTo(1L);
-        assertThat(result.getTitre()).isEqualTo("Task 1");
-        verify(todoRepository).findById(1L);
+        assertThat(result.getId()).isEqualTo(TODO_ID);
+        assertThat(result.getTitre()).isEqualTo(TODO_TITLE);
+        verify(todoRepository).findById(TODO_ID);
     }
 
     @Test
     void findById_whenNotFound_shouldThrowException() {
-        // Arrange
-        given(todoRepository.findById(99L)).willReturn(Optional.empty());
+        given(todoRepository.findById(UNKNOWN_TODO_ID)).willReturn(Optional.empty());
 
-        // Act + Assert
-        assertThrows(RuntimeException.class, () -> todoService.findById(99L));
-        verify(todoRepository).findById(99L);
+        assertThrows(RuntimeException.class, () -> todoService.findById(UNKNOWN_TODO_ID));
+        verify(todoRepository).findById(UNKNOWN_TODO_ID);
     }
 
     @Test
     void create_shouldSaveAndReturnTodo() {
-        // Arrange
-        Todo toCreate = new Todo(null, "New task", "New description");
-        Todo saved = new Todo(1L, "New task", "New description");
+        Todo toCreate = new Todo(null, NEW_TITLE, NEW_DESCRIPTION);
+        Todo saved = new Todo(TODO_ID, NEW_TITLE, NEW_DESCRIPTION);
         given(todoRepository.save(toCreate)).willReturn(saved);
 
-        // Act
         Todo result = todoService.create(toCreate);
 
-        // Assert
-        assertThat(result.getId()).isEqualTo(1L);
-        assertThat(result.getTitre()).isEqualTo("New task");
+        assertThat(result.getId()).isEqualTo(TODO_ID);
+        assertThat(result.getTitre()).isEqualTo(NEW_TITLE);
         verify(todoRepository).save(toCreate);
     }
 
     @Test
     void update_shouldModifyExistingTodo() {
-        // Arrange
-        Todo existing = new Todo(1L, "Old title", "Old desc");
-        Todo updates = new Todo(null, "New title", "New desc");
+        Todo existing = new Todo(TODO_ID, OLD_TITLE, OLD_DESCRIPTION);
+        Todo updates = new Todo(null, UPDATED_TITLE, UPDATED_DESCRIPTION);
 
-        given(todoRepository.findById(1L)).willReturn(Optional.of(existing));
+        given(todoRepository.findById(TODO_ID)).willReturn(Optional.of(existing));
         given(todoRepository.save(existing)).willReturn(existing);
 
-        // Act
-        Todo result = todoService.update(1L, updates);
+        Todo result = todoService.update(TODO_ID, updates);
 
-        // Assert
-        assertThat(result.getTitre()).isEqualTo("New title");
-        assertThat(result.getDescription()).isEqualTo("New desc");
-        verify(todoRepository).findById(1L);
+        assertThat(result.getTitre()).isEqualTo(UPDATED_TITLE);
+        assertThat(result.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        verify(todoRepository).findById(TODO_ID);
         verify(todoRepository).save(existing);
     }
 
     @Test
     void delete_shouldCallRepositoryDelete() {
-        // Act
-        todoService.delete(1L);
+        todoService.delete(TODO_ID);
 
-        // Assert
-        verify(todoRepository).deleteById(1L);
+        verify(todoRepository).deleteById(TODO_ID);
     }
 }

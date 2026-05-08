@@ -28,80 +28,88 @@ public class TodoControllerTest {
 
     @Autowired
     private ObjectMapper objectMapper;
+    private static final String API_TODOS = "/api/todos";
+
+    private static final Long TODO_ID = 1L;
+    private static final Long SECOND_TODO_ID = 2L;
+
+    private static final String TASK_1 = "Task 1";
+    private static final String DESC_1 = "Desc 1";
+
+    private static final String TASK_2 = "Task 2";
+    private static final String DESC_2 = "Desc 2";
+
+    private static final String NEW_TASK = "New task";
+    private static final String NEW_DESC = "New desc";
+
+    private static final String UPDATED_TITLE = "Updated title";
+    private static final String UPDATED_DESC = "Updated desc";
+
 
     @Test
     void getAll_shouldReturn200AndList() throws Exception {
-        // Arrange
-        Todo t1 = new Todo(1L, "Task 1", "Desc 1");
-        Todo t2 = new Todo(2L, "Task 2", "Desc 2");
+        Todo t1 = new Todo(TODO_ID, TASK_1, DESC_1);
+        Todo t2 = new Todo(SECOND_TODO_ID, TASK_2, DESC_2);
         given(todoService.findAll()).willReturn(List.of(t1, t2));
 
-        // Act + Assert
-        mockMvc.perform(get("/api/todos"))
+        mockMvc.perform(get(API_TODOS))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(2))
-                .andExpect(jsonPath("$[0].titre").value("Task 1"));
+                .andExpect(jsonPath("$[0].titre").value(TASK_1));
 
         verify(todoService).findAll();
     }
 
     @Test
     void getById_shouldReturn200AndTodo() throws Exception {
-        // Arrange
-        Todo t = new Todo(1L, "Task 1", "Desc 1");
-        given(todoService.findById(1L)).willReturn(t);
+        Todo todo = new Todo(TODO_ID, TASK_1, DESC_1);
+        given(todoService.findById(TODO_ID)).willReturn(todo);
 
-        // Act + Assert
-        mockMvc.perform(get("/api/todos/1"))
+        mockMvc.perform(get(API_TODOS + "/" + TODO_ID))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1L))
-                .andExpect(jsonPath("$.titre").value("Task 1"));
+                .andExpect(jsonPath("$.id").value(TODO_ID))
+                .andExpect(jsonPath("$.titre").value(TASK_1));
 
-        verify(todoService).findById(1L);
+        verify(todoService).findById(TODO_ID);
     }
 
     @Test
     void create_shouldReturn201AndBody() throws Exception {
-        // Arrange
-        Todo toCreate = new Todo(null, "New task", "New desc");
-        Todo created = new Todo(1L, "New task", "New desc");
+        Todo toCreate = new Todo(null, NEW_TASK, NEW_DESC);
+        Todo created = new Todo(TODO_ID, NEW_TASK, NEW_DESC);
         given(todoService.create(toCreate)).willReturn(created);
 
-        // Act + Assert
-        mockMvc.perform(post("/api/todos")
+        mockMvc.perform(post(API_TODOS)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(toCreate)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id").value(1L))
-                .andExpect(jsonPath("$.titre").value("New task"));
+                .andExpect(jsonPath("$.id").value(TODO_ID))
+                .andExpect(jsonPath("$.titre").value(NEW_TASK));
 
         verify(todoService).create(toCreate);
     }
 
     @Test
     void update_shouldReturn200AndUpdatedTodo() throws Exception {
-        // Arrange
-        Todo updates = new Todo(null, "Updated title", "Updated desc");
-        Todo updated = new Todo(1L, "Updated title", "Updated desc");
-        given(todoService.update(1L, updates)).willReturn(updated);
+        Todo updates = new Todo(null, UPDATED_TITLE, UPDATED_DESC);
+        Todo updated = new Todo(TODO_ID, UPDATED_TITLE, UPDATED_DESC);
+        given(todoService.update(TODO_ID, updates)).willReturn(updated);
 
-        // Act + Assert
-        mockMvc.perform(put("/api/todos/1")
+        mockMvc.perform(put(API_TODOS + "/" + TODO_ID)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(updates)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1L))
-                .andExpect(jsonPath("$.titre").value("Updated title"));
+                .andExpect(jsonPath("$.id").value(TODO_ID))
+                .andExpect(jsonPath("$.titre").value(UPDATED_TITLE));
 
-        verify(todoService).update(1L, updates);
+        verify(todoService).update(TODO_ID, updates);
     }
 
     @Test
     void delete_shouldReturn204() throws Exception {
-        // Act + Assert
-        mockMvc.perform(delete("/api/todos/1"))
+        mockMvc.perform(delete(API_TODOS + "/" + TODO_ID))
                 .andExpect(status().isNoContent());
 
-        verify(todoService).delete(1L);
+        verify(todoService).delete(TODO_ID);
     }
 }

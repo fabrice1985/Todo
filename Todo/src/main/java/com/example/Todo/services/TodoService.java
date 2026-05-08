@@ -1,6 +1,7 @@
 package com.example.Todo.services;
 
 import com.example.Todo.entities.Todo;
+import com.example.Todo.exceptions.TodoNotFoundException;
 import com.example.Todo.repositories.TodoRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -19,7 +20,8 @@ public class TodoService {
 
     public Todo findById(Long id) {
         return repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Todo non trouvé"));
+                .orElseThrow(() -> new TodoNotFoundException("Todo not found with id = " + id));
+
     }
 
     public Todo create(Todo todo) {
