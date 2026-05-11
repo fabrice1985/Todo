@@ -2,6 +2,7 @@ package com.example.Todo.web;
 
 import com.example.Todo.entities.Todo;
 import com.example.Todo.services.TodoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,8 +28,10 @@ public class TodoController {
 
     @PostMapping
     public ResponseEntity<Todo> create(@RequestBody Todo todo) {
-        return ResponseEntity.ok(service.create(todo));
+        Todo created = service.create(todo);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Todo> update(@PathVariable Long id,
