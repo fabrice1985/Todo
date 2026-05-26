@@ -5,6 +5,8 @@ import com.example.Todo.entities.User;
 import com.example.Todo.repositories.UserRepository;
 import com.example.Todo.security.JwtService;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.
         AuthenticationManager;
@@ -12,13 +14,17 @@ import org.springframework.security.authentication.
 import org.springframework.security.authentication.
         UsernamePasswordAuthenticationToken;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
+@Slf4j
 public class AuthController {
 
     private final UserRepository userRepository;
@@ -47,19 +53,25 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Map<String, String> login(
-            @RequestBody User user) {
+    public ResponseEntity<?> login(@RequestBody User user) {
 
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        user.getUsername(),
-                        user.getPassword()
-                )
-        );
-
-        String token =
-                jwtService.generateToken(user.getUsername());
-
-        return Map.of("token", token);
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            user.getUsername(),
+                            user.getPassword()));
+            if (authentication.isAuthenticated()) {
+                //Map<String,Object> authData = new HashMap<>();
+                String authData;
+                //authData.put("token", jwtService.generateToken(user.getUsername()));
+                authData = jwtService.generateToken(user.getUsername());
+                //authData.put("type", "Bearer");
+                return ResponseEntity.ok(authData);
+            }
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        } catch (AuthenticationException e) {
+            log.error(e.getMessage());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
     }
 }

@@ -146,10 +146,34 @@
               ]
             }
           },
-          "status": "OK",
-          "code": 200,
+          "status": "Created",
+          "code": 201,
           "_postman_previewlanguage": null,
           "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
             {
               "key": "Content-Type",
               "value": "application/json"
@@ -160,7 +184,7 @@
             },
             {
               "key": "Date",
-              "value": "Mon, 23 Feb 2026 20:24:29 GMT"
+              "value": "Tue, 26 May 2026 18:29:40 GMT"
             },
             {
               "key": "Keep-Alive",
@@ -172,7 +196,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"id\": 2,\n    \"titre\": \"Apprendre dooker et jenkins\",\n    \"description\": \"mes tests postman\"\n}"
+          "body": "{\n    \"id\": 1,\n    \"titre\": \"Apprendre dooker et jenkins\",\n    \"description\": \"mes tests postman\"\n}"
         }
       ]
     },
@@ -231,10 +255,34 @@
               ]
             }
           },
-          "status": "OK",
-          "code": 200,
+          "status": "Created",
+          "code": 201,
           "_postman_previewlanguage": null,
           "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
             {
               "key": "Content-Type",
               "value": "application/json"
@@ -245,7 +293,7 @@
             },
             {
               "key": "Date",
-              "value": "Mon, 23 Feb 2026 20:24:38 GMT"
+              "value": "Tue, 26 May 2026 18:31:18 GMT"
             },
             {
               "key": "Keep-Alive",
@@ -257,7 +305,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"id\": 3,\n    \"titre\": \"Apprendre spring boot j2ee java\",\n    \"description\": \"tout savoir sur ses notions\"\n}"
+          "body": "{\n    \"id\": 2,\n    \"titre\": \"Apprendre spring boot j2ee java\",\n    \"description\": \"tout savoir sur ses notions\"\n}"
         }
       ]
     },
@@ -324,6 +372,30 @@
           "_postman_previewlanguage": null,
           "header": [
             {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
               "key": "Content-Type",
               "value": "application/json"
             },
@@ -333,7 +405,7 @@
             },
             {
               "key": "Date",
-              "value": "Mon, 23 Feb 2026 20:24:59 GMT"
+              "value": "Tue, 26 May 2026 18:32:10 GMT"
             },
             {
               "key": "Keep-Alive",
@@ -345,7 +417,7 @@
             }
           ],
           "cookie": [],
-          "body": "[\n    {\n        \"id\": 1,\n        \"titre\": \"Apprendre spring boot todo service\",\n        \"description\": \"notions de base microservice\"\n    },\n    {\n        \"id\": 2,\n        \"titre\": \"Apprendre dooker et jenkins\",\n        \"description\": \"mes tests postman\"\n    },\n    {\n        \"id\": 3,\n        \"titre\": \"Apprendre spring boot j2ee java\",\n        \"description\": \"tout savoir sur ses notions\"\n    }\n]"
+          "body": "[\n    {\n        \"id\": 1,\n        \"titre\": \"Apprendre dooker et jenkins\",\n        \"description\": \"mes tests postman\"\n    },\n    {\n        \"id\": 2,\n        \"titre\": \"Apprendre spring boot j2ee java\",\n        \"description\": \"tout savoir sur ses notions\"\n    }\n]"
         }
       ]
     },
@@ -411,6 +483,30 @@
           "_postman_previewlanguage": null,
           "header": [
             {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
               "key": "Content-Type",
               "value": "application/json"
             },
@@ -420,7 +516,7 @@
             },
             {
               "key": "Date",
-              "value": "Mon, 23 Feb 2026 20:25:17 GMT"
+              "value": "Tue, 26 May 2026 18:33:29 GMT"
             },
             {
               "key": "Keep-Alive",
@@ -480,7 +576,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/todos/3",
+              "raw": "http://localhost:8080/api/todos/2",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -489,7 +585,7 @@
               "path": [
                 "api",
                 "todos",
-                "3"
+                "2"
               ]
             }
           },
@@ -498,8 +594,32 @@
           "_postman_previewlanguage": null,
           "header": [
             {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
               "key": "Date",
-              "value": "Mon, 23 Feb 2026 20:25:27 GMT"
+              "value": "Tue, 26 May 2026 18:34:55 GMT"
             },
             {
               "key": "Keep-Alive",
@@ -512,6 +632,312 @@
           ],
           "cookie": [],
           "body": null
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "New Request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/todos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "todos"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 26 May 2026 18:36:13 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"titre\": \"Apprendre Spring Boot\",\n        \"description\": \"CRUD complet\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Todo api register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"ROLE_USER\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Todo api register",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"ROLE_USER\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 26 May 2026 18:26:43 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"username\": \"Marge62\",\n    \"password\": \"$2a$10$3YZTFmz7nz2UXKw5YFMLpelVw2JISQZGYUC3JrWQwpI19FQrYLjSG\",\n    \"role\": \"ROLE_USER\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Todo api login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"Viola.Bergnaum44\",\r\n    \"password\": \"password123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Todo api login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"Marge62\",\r\n    \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "133"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 26 May 2026 18:28:34 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXJnZTYyIiwiaWF0IjoxNzc5ODIwMTE0LCJleHAiOjE3Nzk4MjM3MTR9.MzXolHzT5yLwZ6J9HGLbFIsunrTTl3BSM47xXnaOtjE"
         }
       ]
     }
