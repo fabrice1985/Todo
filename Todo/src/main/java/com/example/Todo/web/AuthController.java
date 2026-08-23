@@ -55,6 +55,11 @@ public class AuthController {
         return ResponseEntity.ok(userRepository.save(user));
     }
 
+    @GetMapping("/test")
+    public String test(){
+        return "Docker is working";
+    }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
 
